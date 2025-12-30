@@ -198,6 +198,9 @@ export default function PredictionCard({ prediction, onTryAgain, shareUrl }: Pre
             shadow-[0_8px_32px_rgba(142,93,103,0.1)]
             p-8 w-full
           ">
+            <p className="text-sm italic text-primary-text/70 text-center mb-4">
+              Твоє передбачення на 2026 рік✨
+            </p>
             <p className="text-2xl font-medium text-primary-text leading-relaxed text-center">
               {prediction.text}
             </p>
@@ -208,6 +211,14 @@ export default function PredictionCard({ prediction, onTryAgain, shareUrl }: Pre
       {/* Visible card content */}
       <div className="text-center space-y-8">
         <div className="space-y-6">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="text-sm italic text-primary-text/70"
+          >
+            Твоє передбачення на 2026 рік✨
+          </motion.p>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
