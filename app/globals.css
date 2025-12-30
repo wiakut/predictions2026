@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #8E5D67;
+}
+
+body {
+  color: var(--foreground);
+  background: linear-gradient(to bottom, #FDE2E4, #FDF0F0, #FFF1E6);
+  font-family: 'Inter', 'Montserrat', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .font-serif-heading {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  }
+}
+
