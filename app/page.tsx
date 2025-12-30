@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import predictionsData from '@/src/data/predictions.json';
@@ -33,7 +33,7 @@ function BokehCircle({ delay = 0, duration = 20, size = 200, x = 0, y = 0 }: { d
   );
 }
 
-export default function Home() {
+function HomeContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [predictions, setPredictions] = useState<Prediction[]>([]);
@@ -191,5 +191,17 @@ export default function Home() {
         </AnimatePresence>
       </main>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#FDE2E4] via-[#FDF0F0] to-[#FFF1E6]">
+        <div className="text-primary-text">Завантаження...</div>
+      </div>
+    }>
+      <HomeContent />
+    </Suspense>
   );
 }
